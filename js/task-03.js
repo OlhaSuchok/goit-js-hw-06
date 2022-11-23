@@ -16,16 +16,11 @@ const images = [
 ];
 
 const lіstGallery = document.querySelector(".gallery");
+lіstGallery.style.listStyle = "none";
 
-const image = images.map((image) => {
-  const { url, alt } = image;
-
-  lіstGallery.style.listStyle = "none";
-
-  lіstGallery.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src = ${url} alt = ${alt} width = 640px style ="margin-bottom: 15px"></li>`
-  );
-
-  console.log(lіstGallery);
+const elements = images.map(({ url, alt }) => {
+  return `<li><img src = ${url} alt = ${alt} width = 640px style ="margin-bottom: 15px"></li>`;
 });
+
+lіstGallery.insertAdjacentHTML("afterbegin", elements);
+console.log(elements);
